@@ -6,11 +6,11 @@ def index(request):
 
 
 def shows(request):
-    return render(request,"index.html")
+    return render(request,"shows.html")
 
 
 def new_show(request):
-    pass
+    return render(request,"new_show.html")
 
 
 def create_show(request):
@@ -18,15 +18,15 @@ def create_show(request):
 
 
 def show_id(request, id):
-    pass
+    return render(request,"tv_show.html")
 
 
 def show_edit(request, id):
     pass
 
 
-def show_update(request, id):
-    pass
+def show_update(request):
+    return render(request,"edit_show.html")
 
 
 def show_destroy(request, id):
