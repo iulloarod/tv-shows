@@ -19,14 +19,17 @@ Read (All)
                 </tr>
             </thead>
             <tbody>
+                {% for show in all_shows %}
                 <tr>
-                    <th scope="row"><a href="#">algo.ID</a></th>
-                    <td>algo.title</td>
-                    <td>algo.network</td>
-                    <td>algo.Release Date</td>
+                    <th scope="row"><a href="#">{{ show.id }}</a></th>
+                    <td>{{ show.title }}</td>
+                    <td>{{ show.network }}</td>
+                    <td>{{ show.rel_date }}</td>
+                    <td>{{ show.desc }}</td>
                     <td>
                         <a href="#">Show </a>|<a href="#"> Edit </a>|<a href="#"> Delete</a>
                     </td>
+                {% endfor %}
                 </tr>
             </tbody>
             
