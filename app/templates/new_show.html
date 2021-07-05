@@ -9,7 +9,7 @@ Create
     <div class="my-2 mx-5 py-5 py-2">
         <form action="/shows/create" method="POST"class="mx-5 my-2">
             {% csrf_token %}
-            <div class="pull-right"><a href="#">Go Back</a></div>
+            <div class="pull-right"><a href="/shows">Go Back</a></div>
             <h1 class="py-3">Add a New Show</h1>
             <div class="form-group">
                 <label class=" text-white" for="title">Title</label>
@@ -19,6 +19,7 @@ Create
                 <div class="form-group col-3">
                     <label class=" text-white" for="network">Network</label>
                     <select name="network" class="form-control" id="network">
+                        <option value="" selected disabled hidden>Select Network</option>
                         <option>ABC</option>
                         <option>AMC</option>
                         <option>FX</option>

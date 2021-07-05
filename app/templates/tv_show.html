@@ -7,16 +7,16 @@ Read (One)
 
 {% block content %}
     <div class="my-2 mx-5 py-5 py-2">
-        <div class="pull-right"><a href="#">Go Back</a></div>
-        <h1 class="mb-5">TV Show algo.id</h1>
-        <h5 class="text-white">Title: algo.title</h5>
-        <h5 class="text-white">Network: algo.network</h5>
-        <h5 class="text-white">Release Date: algo.date</h5>
-        <h5 class="text-white">Description: algo.description</h5>
+        <div class="pull-right"><a href="/shows">Go Back</a></div>
+        <h1 class="mb-5">TV Show {{id}}</h1>
+        <h5 class="text-white">Title: {{title}}</h5>
+        <h5 class="text-white">Network: {{network}}</h5>
+        <h5 class="text-white">Release Date: {{rel_date}}</h5>
+        <h5 class="text-white">Description: {{desc}}</h5>
         <br>
-        <h5 class="text-white">Last Updated: algo.last_updated</h5>
+        <h5 class="text-white">Last Updated: {{updated}}</h5>
         <br>
-        <div><a href="#">Edit </a>|<a href="#"> Delete</a></div>
+        <div><a href="/shows/{{id}}/edit">Edit </a>|<a href="/shows/{{id}}/destroy"> Delete</a></div>
     </div>
 {% endblock %}
 

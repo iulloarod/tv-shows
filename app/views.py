@@ -38,20 +38,47 @@ def create_show(request):
 
 
 def show_id(request, id):
-    return render(request,"tv_show.html")
+    theshow = Show.objects.get(id=int(id))
+    if request.method=='GET':
+        context= {
+            "id": theshow.id,
+            "title": theshow.title,
+            "network": theshow.network,
+            "rel_date": theshow.rel_date,
+            "desc": theshow.desc,
+            "updated": theshow.updated_at,
+        }
+        return render(request,"tv_show.html", context)
 
 
 def show_edit(request, id):
-    pass
-    return render(request,"edit_show.html")
+    edit_show = Show.objects.get(id=int(id))
+    if request.method =="GET":
+        context= {
+            "id": edit_show.id,
+            "title": edit_show.title,
+            "network": edit_show.network,
+            "rel_date": edit_show.rel_date,
+            "desc": edit_show.desc,
+            "updated": edit_show.updated_at,
+        }
+        return render(request,"edit_show.html", context)
 
-
+#esto no me funcionaaaaaaaaaaa
 def show_update(request, id):
-    return redirect('/shows/<id>')
+    show_to_updated = Show.objects.get(id=int(id))
+    if request.method=="POST":
+        show_to_updated.title=request.POST['title']
+        show_to_updated.network=request.POST['network']
+        show_to_updated.desc= request.POST['description']
+        show_to_updated.rel_date= request.POST['release_date']
+        show_to_updated.save()
+        return redirect('/shows')
 
 
 def show_destroy(request, id):
-    pass
+    destroy_show = Show.objects.get(id=int(id))
+    destroy_show.delete()
     return redirect('/shows')
 
 
